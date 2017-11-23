@@ -157,7 +157,7 @@
             "source": {
                 "type": "git",
                 "url": "../invoices-core",
-                "reference": "384a89cb8fc5e20f0cdb37cbdbaee0a16749ca54"
+                "reference": "bc7688e018f8f475758a357e99a16d4f00856578"
             },
             "require": {
                 "laravel/framework": "5.4.*"
@@ -185,7 +185,7 @@
                 }
             ],
             "description": "Invoice core test for job opportunity",
-            "time": "2017-11-23T14:16:47+00:00"
+            "time": "2017-11-23T16:59:06+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",

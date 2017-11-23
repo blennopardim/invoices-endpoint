@@ -17,3 +17,4 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 Route::resource('users', 'Api\UserController');
+Route::resource('users.invoices', 'Api\InvoiceController');
