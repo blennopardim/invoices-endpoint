@@ -120,7 +120,9 @@ describe('Test invoices endpoint', function()
   it('remove invoice DELETE /api/users/{user_id}/invoices/{invoice_id}', function ()
   {
       $invoice = Invoice::where('company_name','=','Acme Company')->first();
-      $this->laravel->delete("/api/users/{$invoice->user_id}/invoices/{$invoice->id}")->assertStatus(200);
+      $this->laravel->delete("/api/users/{$invoice->user_id}/invoices/{$invoice->id}")
+                    ->assertStatus(200)
+                    ->assertJson(['status' => 'Removido com sucesso']);
   });
 
   it('delete user DELETE /api/users', function () {  

@@ -66,4 +66,18 @@ class InvoiceController extends Controller
         $invoice->update($request->all());
         return response()->json($invoice->toArray());
     }
+
+     /**
+     * Remove the specified resource from storage.
+     * @param  int  $user_id
+     * @param  int  $invoice_id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($user_id, $invoice_id)
+    {   
+        $invoice = Invoice::where('user_id', $user_id)
+                          ->where('id', $invoice_id)
+                          ->delete();
+        return response()->json(['status' => 'Removido com sucesso'], 200);
+    }
 }

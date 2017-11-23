@@ -13,7 +13,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "../invoices-core/.git"
+            "url": "https://github.com/blennopardim/invoices-core.git"
         }
     ],
     "require-dev": {
