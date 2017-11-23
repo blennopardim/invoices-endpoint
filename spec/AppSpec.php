@@ -93,8 +93,39 @@ describe('Test invoices endpoint', function()
       $invoice = Invoice::where('company_name', 'Acme Company')->first();
 
       $this->laravel->get("/api/users/{$invoice->user_id}/invoices/{$invoice->id}")
-          ->assertStatus(200);
+          ->assertStatus(200)
+          ->assertJson(['company_name' => 'Acme Company']);
   });
 
-  
+  it('edit invoice PUT /api/users/{user_id}/invoices/{invoice_id}', function ()
+  {
+      $invoice = Invoice::where('company_name', 'Acme Company')->first();
+      
+      $response = $this->laravel->put("/api/users/{$invoice->user_id}/invoices/{$invoice->id}", 
+        ['paid' => false ]);
+
+      $response->assertStatus(200)
+               ->assertJson(['paid' => false]);
+  });
+
+  it('list invoices GET /api/users/{user_id}/invoices', function ()
+  {
+      $user = User::where('cpf', '03869076178')->first();
+      
+      $response = $this->laravel->get("/api/users/{$user->id}/invoices");
+
+      $response->assertStatus(200);
+  });
+
+  it('remove invoice DELETE /api/users/{user_id}/invoices/{invoice_id}', function ()
+  {
+      $invoice = Invoice::where('company_name','=','Acme Company')->first();
+      $this->laravel->delete("/api/users/{$invoice->user_id}/invoices/{$invoice->id}")->assertStatus(200);
+  });
+
+  it('delete user DELETE /api/users', function () {  
+    $user = User::where('cpf','=','03869076178')->first();
+    $this->laravel->delete('/api/users/'.$user->id)->assertStatus(200);
+  });
+
 });

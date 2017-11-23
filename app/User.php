@@ -10,6 +10,8 @@ class User extends Authenticatable
 {
     use Notifiable;
     use InvoiceCoreUserTraid;
+    protected $appends = ['invoices_count'];
+
 
     /**
      * The attributes that are mass assignable.
@@ -28,4 +30,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getInvoicesCountAttribute()
+    {
+        # Future enable cache
+        return $this->invoices()->count();
+    }
+
 }
