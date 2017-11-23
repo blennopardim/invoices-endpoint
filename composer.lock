@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "dfa7bcc0a9d63b42ba41572b733bf7fb",
+    "content-hash": "a54663f92d31d1a01a5bbabb03efe143",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -150,6 +150,42 @@
                 "parser"
             ],
             "time": "2017-11-14T20:44:03+00:00"
+        },
+        {
+            "name": "invoices/core",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "../invoices-core",
+                "reference": "384a89cb8fc5e20f0cdb37cbdbaee0a16749ca54"
+            },
+            "require": {
+                "laravel/framework": "5.4.*"
+            },
+            "require-dev": {
+                "sofa/laravel-kahlan": "~5.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Invoices\\Core\\InvoicesServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Invoices\\Core\\": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Blenno Cleofas Pardim",
+                    "email": "blennopardim@gmail.com"
+                }
+            ],
+            "description": "Invoice core test for job opportunity",
+            "time": "2017-11-23T14:16:47+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -3468,7 +3504,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "invoices/core": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
